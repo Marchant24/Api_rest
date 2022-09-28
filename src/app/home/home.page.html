@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inbox
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        HOME
+      </ion-title>
+    </ion-toolbar>
+
+    <ion-item detail routerLink="/temperatura">
+      <ion-chip>
+      <ion-label color="Success" >Temperaturas </ion-label>
+      <ion-icon name="options-outline" color="blue"></ion-icon>
+    </ion-chip>
+    </ion-item>
+
+
+    <ion-item detail routerLink="/tempe-users">
+      <ion-chip>
+      <ion-label color="Success" >RegistrosofUsersTempe</ion-label>
+      <ion-icon name="options-outline" color="blue"></ion-icon>
+    </ion-chip>
+    </ion-item>
+
+
+  </ion-header>
+
+  
+  
+  <ion-list>
+    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+  </ion-list>
+</ion-content>
